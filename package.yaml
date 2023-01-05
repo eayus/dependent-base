@@ -8,6 +8,7 @@ default-extensions:
 - DataKinds
 - GADTs
 - PolyKinds
+- StandaloneDeriving
 - TypeOperators
 - TypeFamilies
 

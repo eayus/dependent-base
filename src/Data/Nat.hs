@@ -6,6 +6,7 @@ import Data.Kind
 data Nat
     = Z
     | S Nat
+    deriving Eq
 
 
 data SNat :: Nat -> Type where

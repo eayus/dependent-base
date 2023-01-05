@@ -9,6 +9,9 @@ data Fin :: Nat -> Type where
     FS :: Fin n -> Fin (S n)
 
 
+deriving instance Eq (Fin vars)
+
+
 finToNat :: Fin n -> Nat
 finToNat FZ     = Z
 finToNat (FS n) = S (finToNat n)
