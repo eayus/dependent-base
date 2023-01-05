@@ -1,0 +1,16 @@
+name: dependent-base
+
+library:
+  source-dirs: src
+
+default-extensions:
+- ApplicativeDo
+- DataKinds
+- GADTs
+- PolyKinds
+- TypeOperators
+- TypeFamilies
+
+dependencies:
+- base >= 4.7 && < 5
+
