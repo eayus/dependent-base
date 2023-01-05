@@ -16,3 +16,8 @@ data SNat :: Nat -> Type where
 type family Add (n :: Nat) (m :: Nat) :: Nat where
     Add Z     m = m
     Add (S n) m = S (Add n m)
+
+
+natToInt :: Nat -> Int
+natToInt Z     = 0
+natToInt (S n) = 1 + natToInt n
