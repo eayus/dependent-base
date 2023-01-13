@@ -2,6 +2,7 @@ module Data.Vect where
 
 import Prelude hiding (length, (++))
 import Data.Kind
+import Data.Level
 import Data.Nat
 import Data.Fin
 
@@ -44,14 +45,14 @@ index FZ     (Cons x xs) = x
 index (FS i) (Cons x xs) = index i xs
 
 
-level :: Fin len -> Vect len a -> a
-level l xs =
+level :: Level len -> Vect len a -> a
+level (Level l) xs =
     let i = complement (length xs) l
     in index i xs
 
 
-findLevel :: Eq a => a -> Vect len a -> Maybe (Fin len)
+findLevel :: Eq a => a -> Vect len a -> Maybe (Level len)
 findLevel e Nil         = Nothing
 findLevel e (Cons x xs)
-    | e == x    = Just (limit $ length xs)
-    | otherwise = relax <$> findLevel e xs
+    | e == x    = Just (Level (limit $ length xs))
+    | otherwise = weakenLevel <$> findLevel e xs

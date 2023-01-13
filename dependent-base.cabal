@@ -11,6 +11,7 @@ build-type:     Simple
 library
   exposed-modules:
       Data.Fin
+      Data.Level
       Data.List.All
       Data.List.Elem
       Data.List.Length
